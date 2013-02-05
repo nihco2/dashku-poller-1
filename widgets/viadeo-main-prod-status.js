@@ -1,7 +1,7 @@
     
     var 
         conf        = require('./../conf'),
-        request     = require("request"),
+        request     = require('request'),
         timeCounter = require('./../lib/timeCounter'),
         Transmission = require('./../lib/Transmission')
     ;

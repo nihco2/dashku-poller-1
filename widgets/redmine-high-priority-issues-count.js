@@ -1,9 +1,8 @@
 
     var 
         conf        = require('./../conf'),
-        request     = require("request"),
-        Redmine     = require('./../lib/redmine'),
-        redmine     = new Redmine(conf.redmine),
+        request     = require('request'),
+        redmine     = new (require('./../lib/redmine'))(conf.redmine),
         Transmission = require('./../lib/Transmission')
     ;
     

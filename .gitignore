@@ -3,3 +3,5 @@ node_modules/*
 widgets/.DS_Store
 
 conf.js
+
+npm-debug.log
