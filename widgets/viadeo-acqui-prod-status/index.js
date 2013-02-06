@@ -1,9 +1,10 @@
     
     var 
-        conf        = require('./../conf'),
+        conf        = require('./../../conf'),
         request     = require('request'),
-        timeCounter = require('./../lib/timeCounter'),
-        Transmission = require('./../lib/Transmission')
+        timeCounter = require('./../../lib/timeCounter'),
+        Transmission = require('./../../lib/Transmission'),
+        ref         = "acqui webapp production status"
     ;
     
     module.exports = function(){
@@ -15,10 +16,15 @@
             
                 request.post(
                     new Transmission().addBodyParams({
-                        "_id" : conf.dashku.widgetsRefs["acqui webapp production status"],
+                        "_id" : conf.dashku.widgetsRefs[ref],
                         "value": response.statusCode,
                         "delay": timeCounter.getFormatedDelay('acqui status')
-                    })
+                    }),
+                    function(err, res){ 
+                        if(res.statusCode == 200) {
+                            console.log("OK : " + ref);
+                        } else { console.warn("KO : " + ref + " Transmission failed"); }
+                    }
                 );
                         
             }
