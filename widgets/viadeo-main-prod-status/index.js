@@ -11,7 +11,7 @@
     
         // Prod status
         timeCounter.register('prod status');
-        request.get({url : "http://www.viadeo.com/fr/connexion/"}, function(error, response){
+        request.get({url : conf.viadeo.url.main.prod}, function(error, response){
             
             if(error) throw new Error(err, "KO : main webapp production status");
             
