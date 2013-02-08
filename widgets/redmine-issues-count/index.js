@@ -1,13 +1,13 @@
 
     var 
-        conf        = require('./../../conf'),
+        conf        = require(process.env.PWD + '/conf'),
         request     = require('request'),
-        redmine     = new (require('./../../lib/redmine'))(conf.redmine),
-        Transmission = require('./../../lib/Transmission'),
+        redmine     = new (require(process.env.PWD + '/lib/redmine'))(conf.redmine),
+        Transmission = require(process.env.PWD + '/lib/Transmission'),
         ref         = "issues count"
     ;
     
-    module.exports = function(){
+    function main(){
         
         redmine.getIssues({query_id: "640", limit : "1"}, function(err, data) {
         
@@ -27,4 +27,6 @@
             
         });
         
-    }
+    } 
+    
+    if(!module.parent) { main(); } else { module.exports = main; }

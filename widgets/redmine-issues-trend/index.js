@@ -1,9 +1,9 @@
 
     var 
-        conf        = require('./../../conf'),
+        conf        = require(process.env.PWD + '/conf'),
         request     = require('request'),
-        redmine     = new (require('./../../lib/redmine'))(conf.redmine),
-        Transmission = require('./../../lib/Transmission'),
+        redmine     = new (require(process.env.PWD + '/lib/redmine'))(conf.redmine),
+        Transmission = require(process.env.PWD + '/lib/Transmission'),
         ref         = "bugs trend"
     ;
     

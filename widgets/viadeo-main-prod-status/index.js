@@ -1,9 +1,9 @@
     
     var 
-        conf        = require('./../../conf'),
+        conf        = require(process.env.PWD + '/conf'),
         request     = require('request'),
-        timeCounter = require('./../../lib/timeCounter'),
-        Transmission = require('./../../lib/Transmission'),
+        timeCounter = require(process.env.PWD + '/lib/timeCounter'),
+        Transmission = require(process.env.PWD + '/lib/Transmission'),
         ref         = "main webapp production status"
     ;
     
