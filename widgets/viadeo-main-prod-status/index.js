@@ -7,7 +7,7 @@
         ref         = "main webapp production status"
     ;
     
-    module.exports = function(){
+    function main(){
     
         // Prod status
         timeCounter.register('prod status');
@@ -31,3 +31,5 @@
         });
          
     }
+    
+    if(!module.parent) { main(); } else { module.exports = main; }

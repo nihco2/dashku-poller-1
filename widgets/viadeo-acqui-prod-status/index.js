@@ -7,7 +7,7 @@
         ref         = "acqui webapp production status"
     ;
     
-    module.exports = function(){
+    function main(){
         
         // Acqui status
         timeCounter.register('acqui status');
@@ -30,3 +30,5 @@
             
         });    
     }
+    
+    if(!module.parent) { main(); } else { module.exports = main; }

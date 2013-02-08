@@ -7,7 +7,7 @@
         ref         = "bugs trend"
     ;
     
-    module.exports = function(){
+    function main(){
         
         redmine.getIssues({query_id: "640", limit : "1"}, function(err, data) {
         
@@ -28,3 +28,5 @@
         });
 
     }
+    
+    if(!module.parent) { main(); } else { module.exports = main; }

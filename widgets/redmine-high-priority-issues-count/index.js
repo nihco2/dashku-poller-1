@@ -7,7 +7,7 @@
         ref         = "high priority issues count"
     ;
     
-    module.exports = function(){
+    function main(){
         
         redmine.getIssues({query_id: "732", limit : "1"}, function(err, data) {
         
@@ -28,3 +28,5 @@
         });
 
     }
+    
+    if(!module.parent) { main(); } else { module.exports = main; }
