@@ -2,7 +2,7 @@
 // check out the Docs section titled 'Using 3rd-party JS libraries'.
 
 // The widget's html as a jQuery object
-var widget = this.widget;
+var widget = this.widget, r = null;
 
 // This runs when the widget receives a transmission
 this.on('load', function(data){
@@ -15,16 +15,23 @@ this.on('load', function(data){
 
 this.on('transmission', function(data){
   
-	var r = Raphael("pieholder"),
+  if(r) r.remove();
+  
+  widget.find('#pieholder').html();
+  
+  r = Raphael("pieholder");
+  
+  var
       values = data.values,
       names = data.names,
       pie = r.piechart(100, 100, 80, values, {
         legend: names,
-        legendpos: "east"
+        legendpos: "east",
+        legendcolor: "white"
       })
-  ;
+ ;
     
-  pie.hover(function () {
+ pie.hover(function () {
     this.sector.stop();
     this.sector.scale(1.1, 1.1, this.cx, this.cy);
     
@@ -41,6 +48,5 @@ this.on('transmission', function(data){
       this.label[1].attr({ "font-weight": 400 });
     }
   });
-
 
 });
