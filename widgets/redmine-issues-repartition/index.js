@@ -5,15 +5,18 @@
         _           = require('underscore'),
         redmine     = new (require(process.env.PWD + '/lib/redmine'))(conf.redmine),
         Transmission = require(process.env.PWD + '/lib/Transmission'),
-        ref         = "issues repartition",
-        repartition = {},
-        names       = [],
-        counts      = []
+        ref         = "issues repartition"
     ;
     
     function main(){
         
         redmine.getIssues({query_id: "640", limit : "50"}, function(err, data) {
+        
+            var
+                repartition = {}
+                names       = [],
+                counts      = []
+            ;
         
             if(err) throw new Error(err, "KO : " + ref);
             
