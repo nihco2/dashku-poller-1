@@ -5,3 +5,5 @@ widgets/.DS_Store
 conf.js
 
 npm-debug.log
+
+.DS_Store
