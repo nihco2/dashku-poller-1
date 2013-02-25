@@ -4,7 +4,8 @@
         request     = require('request'),
         redmine     = new (require(process.env.PWD + '/lib/redmine'))(conf.redmine),
         Transmission = require(process.env.PWD + '/lib/Transmission'),
-        ref         = "bugs trend"
+        ref         = "bugs trend",
+        trendValStack  = []
     ;
     
     function main(){
@@ -13,10 +14,14 @@
         
             if(err) throw new Error(err, "KO : " + ref);
             
+            trendValStack.push(data['total_count']);
+            
+            if(trendValStack.length > 15) trendValStack = trendValStack.shift();
+            
             request.post(
                 new Transmission().addBodyParams({
                     "_id" : conf.dashku.widgetsRefs[ref],
-                    "value": data['total_count']
+                    "values": trendValStack
                 }),
                 function(err, res){ 
                     if(res.statusCode == 200) {

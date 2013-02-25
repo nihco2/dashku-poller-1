@@ -15,17 +15,11 @@ this.on('load', function(data){
      strokeWidth: 0
    };
 
-    widget.find(".line").peity("line",widget.options);
+    widget.find(".line").peity("line", widget.options);
   });
 
 });
 // This runs when the widget receives a transmission
 this.on('transmission', function(data){
-  var existingData = widget.find(".line").text().split(',')
-  if (existingData.length > 15) {existingData.shift() };
-  if (data.value == undefined) {
-    data.value = Math.floor(Math.random()*10);
-  }
-  existingData.push(data.value);
-  widget.find(".line").text(existingData.toString(",")).change();
+  widget.find(".line").text(data.values.toString(",")).change();
 });
