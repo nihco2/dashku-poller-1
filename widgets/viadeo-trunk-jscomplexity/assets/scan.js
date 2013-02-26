@@ -2,8 +2,8 @@
 
 var 
     cwd         = process.cwd(),
-    conf        = require(cwd + '/conf'),
-    cl          = require(cwd + '/assets/cl'),
+    conf        = require('../conf'),
+    cl          = require('./cl'),
     jscr        = require('jscomplexity')
 ;
 

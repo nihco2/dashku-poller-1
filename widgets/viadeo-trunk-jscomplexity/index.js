@@ -10,10 +10,10 @@
     function main(){
     
         var 
-            conf = require('./conf'),
+            svnconf = require('./conf'),
             scansvn = require('./assets/scan'),
             formatData = require('./assets/formatData'),
-            repo = conf.svn.repo
+            repo = svnconf.svn.repo
         ;
         
         scansvn(repo, function(err, report){
