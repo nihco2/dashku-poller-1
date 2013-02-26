@@ -8,6 +8,7 @@
         .add(5,  'minutes',  require('./widgets/redmine-issues-repartition'))
         .add(5,  'minutes',  require('./widgets/viadeo-main-prod-status'))
         .add(5,  'minutes',  require('./widgets/viadeo-acqui-prod-status'))
+        .add(5,  'minutes',  require('./widgets/viadeo-trunk-jscomplexity'))
     ;
 
     
