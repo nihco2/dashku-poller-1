@@ -1,6 +1,6 @@
 
 node_modules/*
-widgets/.DS_Store
+*.DS_Store
 
 conf.js
 
