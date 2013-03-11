@@ -5,9 +5,9 @@
         conf        = require('./conf')
     ;
     
-    _.each(conf.dashku.widgets, function(widget, next){
+    _.each(conf.dashku.widgets, function(widget){
         
-        schedule.add(widget.period.count, widget.period.unit, require(widget.dir));
+        if(widget.active) schedule.add(widget.period.count, widget.period.unit, require(widget.dir));
         
     });
     
