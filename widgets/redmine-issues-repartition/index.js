@@ -42,7 +42,7 @@
             
             request.post(
                 new Transmission().addBodyParams({
-                    "_id" : conf.dashku.widgetsRefs[ref],
+                    "_id" : conf.dashku.widgets[ref].reference,
                     "names": names,
                     "values" : counts
                 }),

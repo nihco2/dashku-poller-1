@@ -15,7 +15,7 @@
                         
             request.post(
                 new Transmission().addBodyParams({
-                    "_id" : conf.dashku.widgetsRefs[ref],
+                    "_id" : conf.dashku.widgets[ref].reference,
                     "value": data['total_count']
                 }),
                 function(err, res){ 
