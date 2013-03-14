@@ -4,7 +4,7 @@
         request     = require('request'),
         timeCounter = require(process.env.PWD + '/lib/timeCounter'),
         Transmission = require(process.env.PWD + '/lib/Transmission'),
-        ref         = "main webapp production status"
+        ref         = "viadeo main prod status"
     ;
     
     function main(){
@@ -13,7 +13,7 @@
         timeCounter.register('prod status');
         request.get({url : conf.viadeo.url.main.prod}, function(error, response){
             
-            if(error) throw new Error(err, "KO : main webapp production status");
+            if(error) throw new Error(err, "KO : viadeo main prod status");
             
             request.post(
                 new Transmission().addBodyParams({
