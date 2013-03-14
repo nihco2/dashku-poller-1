@@ -4,7 +4,7 @@
         request     = require('request'),
         redmine     = new (require(process.env.PWD + '/lib/redmine'))(conf.redmine),
         Transmission = require(process.env.PWD + '/lib/Transmission'),
-        ref         = "high priority issues count"
+        ref         = "redmine high priority issues count"
     ;
     
     function main(){
