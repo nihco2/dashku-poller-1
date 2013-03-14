@@ -5,7 +5,7 @@
         _           = require('underscore'),
         redmine     = new (require(process.env.PWD + '/lib/redmine'))(conf.redmine),
         Transmission = require(process.env.PWD + '/lib/Transmission'),
-        ref         = "issues repartition"
+        ref         = "redmine issues repartition"
     ;
     
     function main(){
