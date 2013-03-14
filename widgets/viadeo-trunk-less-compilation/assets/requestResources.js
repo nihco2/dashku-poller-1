@@ -27,6 +27,8 @@ module.exports= function(resourcesList){
         var resourceUrl = url + resourceRef + type;
         request.get({url : resourceUrl}, function(err, res){
         
+            if(err) deferred.reject(err);
+        
             report.push({
                 url     : resourceUrl,
                 status  : res.statusCode,
