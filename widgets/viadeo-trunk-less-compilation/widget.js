@@ -23,7 +23,7 @@ this.on('transmission', function(res){
   while(len--){
     
     validClass = (data[len]["valid"] != true) ? "invalid" : "";
-    statusClass = (data[len]["status"] != 200) ? "unreached" : "";
+    statusClass = (data[len]["found"] != true) ? "unreached" : "";
     
     html += "<span class=\"dot " + validClass + " " + statusClass + " \" id=\"" + data[len]["url"] + "\"></span>";
     
