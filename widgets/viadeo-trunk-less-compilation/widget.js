@@ -25,7 +25,7 @@ this.on('transmission', function(res){
     validClass = (data[len]["valid"] != true) ? "invalid" : "";
     statusClass = (data[len]["found"] != true) ? "unreached" : "";
     
-    html += "<span class=\"dot " + validClass + " " + statusClass + " \" id=\"" + data[len]["url"] + "\"></span>";
+    html += "<span class=\"dot " + validClass + " " + statusClass + " \" id=\"" + data[len]["reference"] + "\"></span>";
     
   }
   
