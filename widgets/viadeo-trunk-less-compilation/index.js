@@ -1,40 +1,24 @@
- 
+
     var 
-        conf        = require(process.env.PWD + '/conf'),
-        Q           = require('q'),
         path        = require('path'),
-        request     = require('request'),
-        Transmission = require(process.env.PWD + '/lib/Transmission'),
-        ref         = "viadeo trunk less compilation"
+        Q           = require('q')
     ;
     
     function main(){
     
         var 
             localConf   = require('./conf'),
-            repo        = path.join(localConf.svn.repo, localConf.svn.dir)
+            repo        = localConf.svn.repo
         ;
         
         Q
             .fcall(function(){return repo})
-            .then(require('./assets/svn-co'))
-            .then(require('./assets/buildTargetPath'))
-            .then(require('./assets/parseXmlFile'))
-            .then(require('./assets/harvestData'))
-            .then(require('./assets/requestResources'))
-            .then(function(report){
-                request.post(
-                    new Transmission().addBodyParams({
-                        "_id" : conf.dashku.widgets[ref].reference,
-                        "data": report
-                    }),
-                    function(err, res){
-                        if(res.statusCode == 200) {
-                            console.log("OK : " + ref);
-                        } else { console.warn("KO : " + ref + " Transmission failed"); }
-                    }
-                );
-            })
+            .then(require('./assets/svn-co'))               // checkout svn repo and returns directory where co done
+            .then(require('./assets/buildTargetPath'))      // returns target file (wro.xml file)
+            .then(require('./assets/parseXmlFile'))         // returns wro.xml as js object
+            .then(require('./assets/getLessFiles'))         // returns an array of css files paths
+            .then(require('./assets/lessCheck'))            // launch less parsind and returns a report
+            .then(require('./assets/transmitReport'))       // transmit report
         ;
     }
     

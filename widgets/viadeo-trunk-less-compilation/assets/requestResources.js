@@ -6,7 +6,7 @@ var
     conf = require('../conf')
 ;
 
-module.exports= function(resourcesList){
+module.exports = function(resourcesList){
 
     var 
         deferred = Q.defer(),
