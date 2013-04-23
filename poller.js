@@ -1,6 +1,6 @@
  
     var 
-        schedule    = require('./lib/scheduler'),
+        schedule    = require('./assets/scheduler'),
         _           = require('underscore'),
         conf        = require('./conf')
     ;
