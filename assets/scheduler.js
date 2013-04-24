@@ -7,11 +7,18 @@
     module.exports = (function(){
     
         return {
-            add : function(periodvalue, unit, job){
+            add : function(periodString, job){
+            
+                var 
+                    period = periodString.split(' '),
+                    periodValue = period[0],
+                    periodUnit = period[1]
+                ;
+            
                 schedule.scheduleJob(
                     {
                         start : Date.now(),
-                        period : moment.duration(periodvalue, unit).asMilliseconds()
+                        period : moment.duration(periodValue, periodUnit).asMilliseconds()
                     },
                     job
                 );
