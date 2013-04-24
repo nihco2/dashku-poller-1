@@ -2,8 +2,7 @@
     var 
         schedule    = require('./assets/scheduler'),
         _           = require('underscore'),
-        conf        = require('./conf'),
-        transmit    = require('./assets/transmit')
+        conf        = require('./conf')
     ;
     
     _.each(conf.dashku.widgets, function(widget){
