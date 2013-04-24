@@ -4,7 +4,8 @@
   "dependencies": {
     "moment": ">=1.7.2",
     "underscore": "~1.4.4",
-    "pomelo-schedule": ">=0.3.4"
+    "pomelo-schedule": ">=0.3.4",
+    "request" : "2.20.0"
   },
   "devDependencies": {
     "connect": "~2.7.3"
