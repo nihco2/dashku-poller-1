@@ -9,12 +9,11 @@
         
         if(widget.active) {
             schedule.add(
-                widget.period, require(widget.dir)
+                widget.period, 
+                require(widget.dir).then(function(result){
+                    console.log(widget.reference, result);
+                })
             );
         }
         
     });
-    
-    
-
-    
