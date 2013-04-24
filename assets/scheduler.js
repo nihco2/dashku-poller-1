@@ -1,13 +1,16 @@
     
     var 
-        schedule   = require('pomelo-schedule'),
-        moment     = require('moment')
+        schedule        = require('pomelo-schedule'),
+        moment          = require('moment'),
+        Transmission    = require('./Transmission'),
+        request         = require('request')
     ;
     
     module.exports = (function(){
     
         return {
-            add : function(periodString, job){
+        
+            add : function(periodString, job, reference){
             
                 var 
                     period = periodString.split(' '),
@@ -20,7 +23,22 @@
                         start : Date.now(),
                         period : moment.duration(periodValue, periodUnit).asMilliseconds()
                     },
-                    job
+                    function(){
+                        job().then(function(result){
+                        
+                            var transmit = (new Transmission(reference)).addBodyParams(result);
+                        
+                            request.post(
+                                transmit,
+                                function(err, res){ 
+                                    if(res.statusCode == 200) {
+                                        console.log("OK : " + reference);
+                                    } else { console.warn("KO : " + reference + " Transmission failed"); }
+                                }
+                            );
+                            
+                        });
+                    }
                 );
                 
                 return this;
@@ -28,3 +46,4 @@
        }; 
         
     }());
+    
