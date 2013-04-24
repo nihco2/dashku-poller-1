@@ -11,7 +11,7 @@
             
                 var 
                     period = periodString.split(' '),
-                    periodValue = period[0],
+                    periodValue = +period[0],
                     periodUnit = period[1]
                 ;
             
