@@ -9,8 +9,10 @@ module.exports = {
         	acqui : { prod : "http://www.othersample..com" }
     	}
 	},
+	mock : {
+    	port : 3000
+	},
 	dashku : {
-        port : 3000, // used for mock
         url : "http://localhost:3000/api/transmission",
         apiKey : "c6b4d463-5025-439f-86a2-74ea8f2f0052",
         widgets : {

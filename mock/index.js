@@ -10,5 +10,5 @@ var app = connect()
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify({ status: 'success' }, null, 2));
   })
- .listen(conf.dashku.port)
+ .listen(conf.mock.port)
 ;
