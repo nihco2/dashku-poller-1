@@ -14,7 +14,7 @@ var app = connect()
     //})
     .use(connectRoute(function(router) {
     
-        router.get('/api/transmission', function (req, res, next) {
+        router.post('/api/transmission', function (req, res, next) {
             console.log(req.body);
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify({ status: 'success' }, null, 2));
