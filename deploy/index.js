@@ -39,15 +39,15 @@ function createSingleWidget(widgetSpec, name){
         name : name,
         css : css = fs.readFileSync(
             path.join(cwd, widgetSpec.dir, '/client/widget.css'), 
-            {encoding : 'utf8'}
+            'utf8'
         ),
         js : fs.readFileSync(
             path.join(cwd, widgetSpec.dir, '/client/widget.js'), 
-            {encoding : 'utf8'}
+            'utf8'
         ),
         html : fs.readFileSync(
             path.join(cwd, widgetSpec.dir, '/client/widget.html'), 
-            {encoding : 'utf8'}
+            'utf8'
         ),
         width : widgetSpec.width,
         height : widgetSpec.height
