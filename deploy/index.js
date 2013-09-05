@@ -21,7 +21,7 @@ request.post(
 )
 
 function createWidgets(err, resp){
-    if (err) {
+    if (err || JSON.parse(resp.body).status === "failure") {
         console.error('unable to create dashboard\n', err)
         throw new error(err)
     } else {
@@ -52,8 +52,6 @@ function createSingleWidget(widgetSpec, name){
         width : widgetSpec.width,
         height : widgetSpec.height
     }
-    
-    //console.log(shipping)
     
     request.post(
         url.resolve(apiUrl, 'dashboards/' + dashId + '/widgets') + '?apiKey=' + apiKey,
