@@ -41,7 +41,7 @@ function createSingleWidget(widgetSpec, name){
             path.join(cwd, widgetSpec.dir, '/client/widget.css'), 
             'utf8'
         ),
-        js : fs.readFileSync(
+        script : fs.readFileSync(
             path.join(cwd, widgetSpec.dir, '/client/widget.js'), 
             'utf8'
         ),
@@ -52,6 +52,8 @@ function createSingleWidget(widgetSpec, name){
         width : widgetSpec.width,
         height : widgetSpec.height
     }
+    
+    console.log(shipping.js)
     
     request.post(
         url.resolve(apiUrl, 'dashboards/' + dashId + '/widgets') + '?apiKey=' + apiKey,
