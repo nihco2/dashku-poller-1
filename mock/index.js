@@ -7,11 +7,6 @@ var
 var app = connect()
 
     .use(connect.bodyParser())
-    //.use(function(req, res){
-    //  console.log(req.body);
-    //  res.setHeader('Content-Type', 'application/json')
-    //  res.end(JSON.stringify({ status: 'success' }, null, 2));
-    //})
     .use(connectRoute(function(router) {
     
         router.post('/api/transmission', function (req, res, next) {
